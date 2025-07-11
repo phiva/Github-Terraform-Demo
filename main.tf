@@ -7,6 +7,7 @@ module "ec2_instances" {
   instance_count  = 3
   instance_name   = "webserver"
   instance_type   = "t3.micro"
+  subnet_id       = "subnet-06f26f06586ba7b1f"
 }
 output "instance_ids" {
   value = module.ec2_instances.instance_ids
