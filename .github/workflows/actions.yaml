@@ -14,9 +14,6 @@ jobs:
       id-token: write     # Permite OIDC token
       contents: read
 
-    env:
-      AWS_REGION: us-east-1
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,13 +21,13 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.8.0
+          terraform_version: ${{ secrets.TERRAFOR_VERSION }}
 
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::674476331235:role/Role-for-Github-Actions
-          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Terraform Init
         run: terraform init
