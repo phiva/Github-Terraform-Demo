@@ -3,7 +3,7 @@ provider "aws" {
 }
 module "ec2_instances" {
   source          = "./modules/EC2"
-  ami_id          = "ami-07041441b708acbd6" # Ubuntu Server 24.04 LTS
+  ami_id          = "ami-020cba7c55df1f615" # Ubuntu Server 24.04 LTS
   instance_count  = 3
   instance_name   = "webserver"
   instance_type   = "t3.micro"
@@ -18,5 +18,5 @@ output "public_ips" {
 
 module "s3" {
   source = "./modules/S3"
-  bucket_name = "phiva1985-s3-bucket-test"
+  bucket_name = "phiva1985-s3-bucket-test-${random_string.suffix.result}"
 }
