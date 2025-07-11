@@ -6,7 +6,7 @@ module "ec2_instances" {
   ami_id          = "ami-07041441b708acbd6" # Ubuntu Server 24.04 LTS
   instance_count  = 3
   instance_name   = "webserver"
-  instance_type   = "t2.micro"
+  instance_type   = "t3.micro"
 }
 output "instance_ids" {
   value = module.ec2_instances.instance_ids
