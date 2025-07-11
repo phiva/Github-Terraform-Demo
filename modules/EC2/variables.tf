@@ -15,3 +15,7 @@ variable "instance_count" {
   description = "Number of EC2 instances to create"
   type        = number
 }
+variable "subnet_id" {
+  description = "The subnet ID where the instance will be created"
+  type        = string
+}
