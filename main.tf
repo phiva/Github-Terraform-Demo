@@ -18,6 +18,5 @@ output "public_ips" {
 
 module "s3" {
   source = "./modules/S3"
-  
-  bucket_name = "phiva1985-s3-bucket-test-${random_string.suffix.result}"
+  bucket_name = "phiva1985-s3-bucket-test-${module.s3.random_suffix}"
 }

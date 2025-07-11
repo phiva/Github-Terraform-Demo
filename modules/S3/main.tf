@@ -1,7 +1,7 @@
 resource "random_string" "suffix" {
   length  = 6
   upper   = false
-  number  = true
+  numeric = true
   special = false
 }
 
