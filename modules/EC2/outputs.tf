@@ -1,6 +1,7 @@
 output "instance_ids" {
-  value = aws_instance.webserver[*].id
+  value = module.ec2.instance_ids
 }
+
 output "public_ips" {
-  value = aws_instance.webserver[*].public_ip
+  value = module.ec2.public_ips
 }
